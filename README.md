@@ -1,5 +1,6 @@
- This notes and examples are from Hussein Nasser's Websocket course. (link)[https://www.youtube.com/watch?v=XgFzHXOk8IQ]
+ This notes and examples are from Hussein Nasser's Websocket course. link: https://www.youtube.com/watch?v=XgFzHXOk8IQ
 
+**Chapters**
 1. What is HTTP?
 2. What is a Web Server?
 3. Introduction to WebSockets
