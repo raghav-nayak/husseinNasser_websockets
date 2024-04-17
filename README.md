@@ -1,5 +1,7 @@
  This notes and examples are from Hussein Nasser's Websocket course. link: https://www.youtube.com/watch?v=XgFzHXOk8IQ
 
+### WebSocket is a bidirectional communication protocol between client and server over the web.
+
 **Chapters**
 1. What is HTTP?
 2. What is a Web Server?
