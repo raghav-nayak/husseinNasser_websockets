@@ -1,20 +1,31 @@
 const http = require('http');
-const WebSocket = require("websocket").server;
+const WebSocketServer = require("websocket").server;
+
+
+let connection = null;
 
 // http server has a socket 
 const httpServer = http.createServer((req, res) => {
     console.log("we have received request");
-})
+});
 
 const websocket = new WebSocketServer({
-    "httpServer": httpServer,
-})
+    httpServer
+});
 
 websocket.on("request", request => {
-    connection = request.accept(null, () => console.log("Opened!!"));
-    connection.on("onopen", () => console.log("Opened!!"));
-    connection.on("onclose", () => console.log("Closed!!"));
-    connection.on("onmessage", message => console.log(`received message ${message}`));
-})
+    connection = request.accept(null, request.origin);
+    connection.on("open", () => {
+        console.log("Opened!!");
+    });
+    connection.on("close", () => console.log("Closed!!"));
+    connection.on("message", message => console.log(`received message ${message.utf8Data}`));
+    sendEvery5seconds();
+});
 
-httpServer.listen(8080, () =>  console.log("listening on port 8080"));
+function sendEvery5seconds() {
+    connection.send(`Message ${Math.random()}`);
+    setTimeout(sendEvery5seconds, 5000);
+}
+
+httpServer.listen(8080, () => console.log("listening on port 8080"));
