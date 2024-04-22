@@ -12,6 +12,19 @@
 - persistent connection
 - you can create your own WebSocket or you can use WebSocket library
 
+## WebSockets pros and cons
+
+Pros
+- full-duplex (no polling)
+- HTTP compatible
+- firewall friendly (standard)
+
+Cons
+- proxying is tricky
+- level 7 load balancing is challenging (timeouts)
+- stateful, difficult to horizontally scale -> solution is to store the state in db and read if server restarts or client disconnects 
+- server does not know whether client is disconnected or not
+
 <hr>
 
 
