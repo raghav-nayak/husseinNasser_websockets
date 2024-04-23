@@ -14,12 +14,12 @@
 
 ## WebSockets pros and cons
 
-Pros
+#### Pros
 - full-duplex (no polling)
 - HTTP compatible
 - firewall friendly (standard)
 
-Cons
+#### Cons
 - proxying is tricky
 - level 7 load balancing is challenging (timeouts)
 - stateful, difficult to horizontally scale -> solution is to store the state in db and read if server restarts or client disconnects 
